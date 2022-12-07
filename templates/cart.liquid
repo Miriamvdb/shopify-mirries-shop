@@ -2,7 +2,7 @@
 
   <div class="container">
     <div class="row">
-      <p class="h2 my-5 text-center">Shopping Cart</p>
+      <p class="h2 my-5 text-center">{{ 'general.Cart.title' | t }}</p>
     </div>
     <div class="my-5">
       <form action="/cart" method="POST" class="row" novalidate>
@@ -69,7 +69,7 @@
 {% else %}
   <div class="container">
     <div class="row">
-      <h2 class="text-center">Cart</h2>
+      <h2 class="text-center">{{ 'general.Cart.title' | t }}</h2>
       <p>Cart is empty</p>
     </div>
   </div>
