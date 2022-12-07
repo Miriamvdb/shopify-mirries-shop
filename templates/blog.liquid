@@ -20,7 +20,7 @@
               <h2>
                 <a href="{{ article.url }}">{{ article.title }}</a>
               </h2>
-              {{ article.author }} @ {{ article.created_at | date }}
+              {{ article.author }} @ {{ article.created_at | date: '%B %d, %Y' }}
               <p class="card-text">
                 {% if article.excerpt.size > 0 %}
                   {{ article.excerpt }}
