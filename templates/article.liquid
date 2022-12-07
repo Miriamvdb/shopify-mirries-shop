@@ -21,6 +21,9 @@
 
 <div class="container my-5">
   <div class="row">
+    {%- comment -%}
+      THIS COLUMN IS FOR THE CONTENT AND COMMENT SECTION
+    {%- endcomment -%}
     <div class="col-12 col-md-8">
       <div>{{ article.content }}</div>
 
@@ -84,6 +87,12 @@
         {% endif %}
       </div>
     </div>
-    <div class="col-12 col-md-4"></div>
+
+    {%- comment -%}
+      THIS COLUMN IS FOR THE SIDEBAR
+    {%- endcomment -%}
+    <div class="col-12 col-md-4">
+      {% section 'sidebar' %}
+    </div>
   </div>
 </div>
