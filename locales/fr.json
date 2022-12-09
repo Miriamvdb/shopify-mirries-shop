@@ -6,6 +6,12 @@
     },
     "Cart": {
       "title": "Carte"
+    },
+    "Layout": {
+      "login_text": "Login in FR",
+      "register_text": "Register in FR",
+      "account_text": "Account in FR",
+      "logout_text": "Logout in FR"
     }
   }
 }
