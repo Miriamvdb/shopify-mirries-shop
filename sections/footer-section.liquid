@@ -1,6 +1,6 @@
-<footer style="color: white" class="footer-section bg-dark py-5 mt-5">
+<footer style="color:white" class="footer-section bg-dark py-5 mt-5">
   <div class="container">
-    <div class="row row-cols-{{ section.settings.col_num }}">
+    <div class="row row-cols-1 row-cols-md-{{ section.settings.col_num }}">
       {% for block in section.blocks %}
         {% assign item = block.settings %}
         {% if block.type == "link_list" %}
