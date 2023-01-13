@@ -62,24 +62,37 @@
         <div class="col-12 col-md-4">
           <div class="card shadow">
             <div class="card-body">
-              <p class="h3">The total amount is</p>
-              <p>{{ cart.total_price | money }}</p>
-              <div class="d-grid gap-2">
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  name="update">Update</button>
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  name="checkout">Checkout</button>
-              </div>
+
+              {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'cart_total' %}
+                  <div class="cart-total-block">
+                    <p class="h3">The total amount is</p>
+                    <p>{{ cart.total_price | money }}</p>
+                  </div>
+
+                  {% when 'cart_checkout_button' %}
+                  <div class="cart-checkout_buttons d-grid gap-2">
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      name="update">Update</button>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      name="checkout">Checkout</button>
+                  </div>
+
+              {% else %}
+                {% endcase %}
+              {% endfor %}
+
             </div>
           </div>
         </div>
+
       </form>
     </div>
-  </div>
 
   {% else %}
     <div class="row">
@@ -89,3 +102,21 @@
   {% endif %}
 
 </div>
+
+{% schema %}
+  {
+    "name": "Cart Section",
+    "tag": "section",
+    "blocks": [
+      {
+        "type": "cart_total",
+        "name": "Cart Total",
+        "limit": 1
+      }, {
+        "type": "cart_checkout_button",
+        "name": "Cart Buttons",
+        "limit": 1
+      }
+    ]
+  }
+{% endschema %}
