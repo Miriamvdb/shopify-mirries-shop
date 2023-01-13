@@ -1,11 +1,15 @@
-{% if cart.item_count > 0 %}
+<div class="container my-5">
 
-  <div class="container">
+  {% if cart.item_count > 0 %}
     <div class="row">
       <p class="h2 my-5 text-center">{{ 'general.Cart.title' | t }}</p>
     </div>
     <div class="my-5">
-      <form action="/cart" method="POST" class="row" novalidate>
+      <form
+        action="/cart"
+        method="POST"
+        class="row"
+        novalidate>
         <div class="col-12 col-md-8">
           <div class="card shadow">
             <div class="card-body">
@@ -33,7 +37,12 @@
                       </td>
                       <td>{{ item.price | money }}</td>
                       <td>
-                        <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+                        <input
+                          type="number"
+                          name="updates[]"
+                          id="updates_{{ item.key }}"
+                          value="{{ item.quantity }}"
+                          min="0">
                       </td>
                       <td>
                         {% if item.original_line_price != item.line_price %}
@@ -56,8 +65,14 @@
               <p class="h3">The total amount is</p>
               <p>{{ cart.total_price | money }}</p>
               <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary" name="update">Update</button>
-                <button type="submit" class="btn btn-primary" name="checkout">Checkout</button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  name="update">Update</button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  name="checkout">Checkout</button>
               </div>
             </div>
           </div>
@@ -66,11 +81,11 @@
     </div>
   </div>
 
-{% else %}
-  <div class="container">
+  {% else %}
     <div class="row">
       <h2 class="text-center">{{ 'general.Cart.title' | t }}</h2>
-      <p>Cart is empty</p>
+      <p class="text-center">Cart is empty</p>
     </div>
-  </div>
-{% endif %}
+  {% endif %}
+
+</div>
